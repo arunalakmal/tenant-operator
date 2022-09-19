@@ -1,0 +1,27 @@
+{{- range $key, $value := .Values.tenants }}
+{{- range $pkey, $pvalue := .project }}
+{{- range $nkey, $nvalue := .namespaces }}
+---
+kind: LimitRange
+apiVersion: v1
+metadata:
+  name: {{ $value.name }}-{{ $pvalue.name }}-{{ $nvalue.name }}
+  namespace: {{ $value.name }}-{{ $pvalue.name }}-{{ $nvalue.name }}
+spec:
+  limits:
+    - type: Container
+      max:
+        cpu: '{{ $nvalue.limits.maxCpu }}'
+        memory: {{ $nvalue.limits.maxMemory }}
+      min:
+        cpu: {{ $nvalue.limits.minCpu }}
+        memory: {{ $nvalue.limits.minMemory }}
+      default:
+        cpu: '1'
+        memory: 1Gi
+      defaultRequest:
+        cpu: 10m
+        memory: 512Mi
+{{- end }}
+{{- end }}
+{{- end }}

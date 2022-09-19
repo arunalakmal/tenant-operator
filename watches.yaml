@@ -1,0 +1,6 @@
+# Use the 'create api' subcommand to add watches to this file.
+- group: charts.techcrumble.net
+  version: v1alpha1
+  kind: Tenant
+  chart: helm-charts/tenants
+#+kubebuilder:scaffold:watch

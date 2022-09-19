@@ -1,0 +1,80 @@
+apiVersion: charts.techcrumble.net/v1alpha1
+kind: Tenant
+metadata:
+  name: tenant-sample
+spec:
+  # Default values copied from <project_dir>/helm-charts/tenants/values.yaml
+  tenants:
+  - name: tenant-a
+    project:
+    - name: project-alpha
+      namespaces:
+      - admin: someone@domain.com
+        limits:
+          maxCpu: 4
+          maxMemory: 2Gi
+          minCpu: 10m
+          minMemory: 128Mi
+        name: build
+        resourceQuota:
+          cpuLimits: 6
+          cpuRequests: 4
+          memoryLimits: 16Gi
+          memoryRequests: 8Gi
+          pods: 10
+      - admin: someone@domain.com
+        limits:
+          maxCpu: 4
+          maxMemory: 2Gi
+          minCpu: 10m
+          minMemory: 128Mi
+        name: dev
+        resourceQuota:
+          cpuLimits: 6
+          cpuRequests: 4
+          memoryLimits: 16Gi
+          memoryRequests: 8Gi
+          pods: 20
+      - admin: someone@domain.com
+        limits:
+          maxCpu: 4
+          maxMemory: 2Gi
+          minCpu: 10m
+          minMemory: 128Mi
+        name: stage
+        resourceQuota:
+          cpuLimits: 6
+          cpuRequests: 4
+          memoryLimits: 16Gi
+          memoryRequests: 8Gi
+          pods: 30
+      - admin: someone@domain.com
+        limits:
+          maxCpu: 4
+          maxMemory: 2Gi
+          minCpu: 10m
+          minMemory: 128Mi
+        name: ppe
+        resourceQuota:
+          cpuLimits: 6
+          cpuRequests: 4
+          memoryLimits: 16Gi
+          memoryRequests: 8Gi
+          pods: 30
+    - name: project-beta
+      namespaces:
+      - admin: someone@domain.com
+        limits:
+          maxCpu: 4
+          maxMemory: 2Gi
+          minCpu: 10m
+          minMemory: 128Mi
+        name: build
+        resourceQuota:
+          cpuLimits: 6
+          cpuRequests: 4
+          memoryLimits: 16Gi
+          memoryRequests: 8Gi
+          pods: 10
+  
+  

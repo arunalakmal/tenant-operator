@@ -1,0 +1,89 @@
+tenants:
+  - name: tenant-a
+    project: 
+      - name: project-alpha
+        namespaces:
+          - name: build
+            admin: "someone@domain.com"
+            resourceQuota:
+              pods: 10
+              cpuLimits: 6
+              cpuRequests: 4
+              memoryLimits: 16Gi
+              memoryRequests: 8Gi
+            limits:
+              maxCpu: 4
+              maxMemory: 2Gi
+              minCpu: 10m
+              minMemory: 128Mi
+          - name: dev
+            admin: "someone@domain.com"
+            resourceQuota:
+              pods: 20
+              cpuLimits: 6
+              cpuRequests: 4
+              memoryLimits: 16Gi
+              memoryRequests: 8Gi
+            limits:
+              maxCpu: 4
+              maxMemory: 2Gi
+              minCpu: 10m
+              minMemory: 128Mi
+          - name: stage
+            admin: "someone@domain.com"
+            resourceQuota:
+              pods: 30
+              cpuLimits: 6
+              cpuRequests: 4
+              memoryLimits: 16Gi
+              memoryRequests: 8Gi
+            limits:
+              maxCpu: 4
+              maxMemory: 2Gi
+              minCpu: 10m
+              minMemory: 128Mi
+          - name: ppe
+            admin: "someone@domain.com"
+            resourceQuota:
+              pods: 30
+              cpuLimits: 6
+              cpuRequests: 4
+              memoryLimits: 16Gi
+              memoryRequests: 8Gi
+            limits:
+              maxCpu: 4
+              maxMemory: 2Gi
+              minCpu: 10m
+              minMemory: 128Mi
+      - name: project-beta
+        namespaces:
+          - name: build
+            admin: "someone@domain.com"
+            resourceQuota:
+              pods: 10
+              cpuLimits: 6
+              cpuRequests: 4
+              memoryLimits: 16Gi
+              memoryRequests: 8Gi
+            limits:
+              maxCpu: 4
+              maxMemory: 2Gi
+              minCpu: 10m
+              minMemory: 128Mi
+  # - name: tenant-b
+  #   project: 
+  #     - name: project-alpha
+  #       namespaces:
+  #         - name: build
+  #           admin: "someone@domain.com"
+  #           resourceQuota:
+  #             pods: 10
+  #             cpuLimits: 6
+  #             cpuRequests: 4
+  #             memoryLimits: 16Gi
+  #             memoryRequests: 8Gi
+  #           limits:
+  #             maxCpu: 4
+  #             maxMemory: 2Gi
+  #             minCpu: 10m
+  #             minMemory: 128Mi

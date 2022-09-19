@@ -1,0 +1,19 @@
+{{- range $key, $value := .Values.tenants }}
+{{- range $pkey, $pvalue := .project }}
+{{- range $nkey, $nvalue := .namespaces }}
+---
+kind: ResourceQuota
+apiVersion: v1
+metadata:
+  name: {{ $value.name }}-{{ $pvalue.name }}-{{ $nvalue.name }}
+  namespace: {{ $value.name }}-{{ $pvalue.name }}-{{ $nvalue.name }}
+spec:
+  hard:
+    limits.cpu: '{{ $nvalue.resourceQuota.cpuLimits }}'
+    limits.memory: {{ $nvalue.resourceQuota.memoryLimits }}
+    pods: '{{ $nvalue.resourceQuota.pods }}'
+    requests.cpu: '{{ $nvalue.resourceQuota.cpuRequests }}'
+    requests.memory: {{ $nvalue.resourceQuota.memoryRequests }}
+{{- end }}
+{{- end }}
+{{- end }}

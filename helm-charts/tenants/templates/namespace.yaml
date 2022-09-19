@@ -1,0 +1,24 @@
+{{- range $key, $value := .Values.tenants }}
+{{- range $pkey, $pvalue := .project }}
+{{- range $nkey, $nvalue := .namespaces }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  # {{- template "namespace.annotations"}}
+  #   ikea/parent_project_name: {{ $value.name }}
+  #   ikea/company: {{ $value.company }}
+  name: {{ $value.name }}-{{ $pvalue.name }}-{{ $nvalue.name }}
+  annotations:
+    costCentre: "CC8260"
+    environment: "development"
+    solutionName: "Application Development Services in Technical Services"
+    legalEntityCode: "4101 IKEA of Sweden AB"
+    company: inter
+  labels:
+    tenant: {{ $value.name }}
+spec: {}
+status: {}
+{{- end }}
+{{- end }}
+{{- end }}
